@@ -1,4 +1,6 @@
-# ASCLAB Micronaut PoC - LAB Insurance Sales Portal
+# The fork of "ASCLAB Micronaut PoC - LAB Insurance Sales Portal"
+
+## The main difference with the upstream: this repository does not use Lombok and thus does not required additional IDE plugins.
 
 [![Build Status](https://dev.azure.com/robertkusmierek/asc-mn-poc/_apis/build/status/build-master?branchName=master)](https://dev.azure.com/robertkusmierek/asc-mn-poc/_build/latest?definitionId=17&branchName=master)
 
