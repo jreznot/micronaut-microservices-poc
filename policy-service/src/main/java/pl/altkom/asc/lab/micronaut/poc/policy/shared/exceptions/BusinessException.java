@@ -1,13 +1,9 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.shared.exceptions;
 
-import lombok.Getter;
-
 public class BusinessException extends RuntimeException {
     protected static final Object[] EMPTY_ARGS = new Object[0];
 
-    @Getter
     private String code = null;
-    @Getter
     private Object[] args = EMPTY_ARGS;
 
     public BusinessException(String code) {
@@ -32,5 +28,13 @@ public class BusinessException extends RuntimeException {
         super(code);
         this.code = code;
         this.args = args;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public Object[] getArgs() {
+        return this.args;
     }
 }

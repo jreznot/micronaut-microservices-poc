@@ -1,7 +1,6 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.commands;
 
 import io.micronaut.spring.tx.annotation.Transactional;
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.command.bus.CommandHandler;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.Offer;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.OfferFactory;
@@ -22,11 +21,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Singleton
-@RequiredArgsConstructor
 public class CreateOfferHandler implements CommandHandler<CreateOfferResult, CreateOfferCommand> {
 
     private final OfferRepository offerRepository;
     private final PricingClient pricingOperations;
+
+    public CreateOfferHandler(OfferRepository offerRepository, PricingClient pricingOperations) {
+        this.offerRepository = offerRepository;
+        this.pricingOperations = pricingOperations;
+    }
 
     @Transactional
     @Override

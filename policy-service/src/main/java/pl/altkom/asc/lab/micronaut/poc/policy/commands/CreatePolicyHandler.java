@@ -1,7 +1,6 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.commands;
 
 import io.micronaut.spring.tx.annotation.Transactional;
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.command.bus.CommandHandler;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.*;
 import pl.altkom.asc.lab.micronaut.poc.policy.infrastructure.adapters.kafka.EventPublisher;
@@ -14,13 +13,18 @@ import javax.inject.Singleton;
 import java.time.LocalDate;
 
 @Singleton
-@RequiredArgsConstructor
 public class CreatePolicyHandler implements CommandHandler<CreatePolicyResult, CreatePolicyCommand> {
 
     private final PolicyRepository policyRepository;
     private final OfferRepository offerRepository;
     private final PolicyFactory policyFactory = new PolicyFactory();
     private final EventPublisher eventPublisher;
+
+    public CreatePolicyHandler(PolicyRepository policyRepository, OfferRepository offerRepository, EventPublisher eventPublisher) {
+        this.policyRepository = policyRepository;
+        this.offerRepository = offerRepository;
+        this.eventPublisher = eventPublisher;
+    }
 
     @Transactional
     @Override

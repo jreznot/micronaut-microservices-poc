@@ -1,6 +1,5 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.commands;
 
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.command.bus.CommandHandler;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.Policy;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.PolicyRepository;
@@ -15,11 +14,15 @@ import javax.inject.Singleton;
 import java.util.Optional;
 
 @Singleton
-@RequiredArgsConstructor
 public class TerminatePolicyHandler implements CommandHandler<TerminatePolicyResult, TerminatePolicyCommand> {
 
     private final PolicyRepository policyRepository;
     private final EventPublisher eventPublisher;
+
+    public TerminatePolicyHandler(PolicyRepository policyRepository, EventPublisher eventPublisher) {
+        this.policyRepository = policyRepository;
+        this.eventPublisher = eventPublisher;
+    }
 
     @Override
     public TerminatePolicyResult handle(TerminatePolicyCommand cmd) {

@@ -1,9 +1,8 @@
 package pl.altkom.asc.lab.micronaut.poc.payment.domain;
 
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.slf4j.Logger;
 import pl.altkom.asc.lab.micronaut.poc.payment.service.api.v1.exceptions.BankStatementsFileNotFound;
 import pl.altkom.asc.lab.micronaut.poc.payment.service.api.v1.exceptions.BankStatementsFileReadingError;
 
@@ -14,8 +13,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
 class BankStatementFile {
+
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(BankStatementFile.class);
 
     private final String path;
     private final String fileName;
@@ -72,7 +72,6 @@ class BankStatementFile {
         return path + File.separator + "_processed_" + fileName;
     }
 
-    @Getter
     class BankStatement {
         private final String accountNumber;
         private final BigDecimal amount;
@@ -82,6 +81,18 @@ class BankStatementFile {
             this.accountNumber = accountNumber;
             this.amount = new BigDecimal(amountAsString);
             this.accountingDate = LocalDate.parse(accountingDateAsIsoDateString, DateTimeFormatter.ISO_DATE);
+        }
+
+        public String getAccountNumber() {
+            return this.accountNumber;
+        }
+
+        public BigDecimal getAmount() {
+            return this.amount;
+        }
+
+        public LocalDate getAccountingDate() {
+            return this.accountingDate;
         }
     }
 }

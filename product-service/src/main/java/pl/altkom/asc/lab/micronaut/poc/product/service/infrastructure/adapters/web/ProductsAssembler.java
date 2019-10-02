@@ -1,7 +1,5 @@
 package pl.altkom.asc.lab.micronaut.poc.product.service.infrastructure.adapters.web;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.product.service.api.v1.CoverDto;
 import pl.altkom.asc.lab.micronaut.poc.product.service.api.v1.ProductDto;
 import pl.altkom.asc.lab.micronaut.poc.product.service.api.v1.questions.*;
@@ -11,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 final class ProductsAssembler {
+
+    private ProductsAssembler() {
+    }
 
     static List<ProductDto> map(List<Product> products) {
         return products.stream()
@@ -94,5 +94,4 @@ final class ProductsAssembler {
 
         return new NumericQuestionDto(question.getCode(), question.getIndex(), question.getText());
     }
-
 }

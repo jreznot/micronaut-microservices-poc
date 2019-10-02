@@ -8,7 +8,7 @@ import pl.altkom.asc.lab.micronaut.poc.pricing.service.api.v1.commands.calculate
 
 import javax.validation.constraints.NotNull;
 
-@Client(id = "/pricing-service", path = "/pricing")
+@Client(id = "pricing-service", path = "/pricing")
 public interface PricingTestClient {
 
     @Post("/calculate")

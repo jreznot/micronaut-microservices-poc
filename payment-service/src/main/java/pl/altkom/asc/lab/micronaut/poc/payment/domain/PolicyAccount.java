@@ -2,9 +2,6 @@ package pl.altkom.asc.lab.micronaut.poc.payment.domain;
 
 import io.micronaut.data.annotation.DateCreated;
 import io.micronaut.data.annotation.DateUpdated;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,12 +11,9 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Setter;
 
 @Entity
 @Table(name = "policy_account")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 public class PolicyAccount {
 
     @Id
@@ -35,12 +29,10 @@ public class PolicyAccount {
     @OneToMany(mappedBy = "policyAccount", cascade = CascadeType.ALL)
     private List<AccountingEntry> entries;
     
-    @Setter
     @DateCreated
     @Column(name = "created")
     private Date created;
     
-    @Setter
     @DateUpdated
     @Column(name = "updated")
     private Date updated;
@@ -49,6 +41,9 @@ public class PolicyAccount {
         this.policyNumber = policyNumber;
         this.policyAccountNumber = policyAccountNumber;
         this.entries = new ArrayList<>();
+    }
+
+    protected PolicyAccount() {
     }
 
     void expectedPayment(BigDecimal amount, LocalDate dueDate) {
@@ -75,5 +70,37 @@ public class PolicyAccount {
         }
 
         return balance;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getPolicyNumber() {
+        return this.policyNumber;
+    }
+
+    public String getPolicyAccountNumber() {
+        return this.policyAccountNumber;
+    }
+
+    public List<AccountingEntry> getEntries() {
+        return this.entries;
+    }
+
+    public Date getCreated() {
+        return this.created;
+    }
+
+    public Date getUpdated() {
+        return this.updated;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 }

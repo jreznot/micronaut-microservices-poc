@@ -1,16 +1,26 @@
 package pl.altkom.asc.lab.micronaut.poc.pricing.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 
-@Getter
-@AllArgsConstructor
 public class Cover {
 
     private String code;
-    @Setter
     private BigDecimal price;
+
+    public Cover(String code, BigDecimal price) {
+        this.code = code;
+        this.price = price;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public BigDecimal getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

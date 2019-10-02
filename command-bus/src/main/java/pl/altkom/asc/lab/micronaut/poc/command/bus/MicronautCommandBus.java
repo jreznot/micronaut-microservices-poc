@@ -1,15 +1,15 @@
 package pl.altkom.asc.lab.micronaut.poc.command.bus;
 
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.command.bus.api.Command;
 import pl.altkom.asc.lab.micronaut.poc.command.bus.api.Query;
 
-import javax.inject.Singleton;
-
-@RequiredArgsConstructor
 public class MicronautCommandBus implements CommandBus {
 
     private final Registry registry;
+
+    public MicronautCommandBus(Registry registry) {
+        this.registry = registry;
+    }
 
     @Override
     public <R, C extends Command<R>> R executeCommand(C command) {

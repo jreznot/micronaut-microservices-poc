@@ -5,17 +5,19 @@ import io.micronaut.security.authentication.AuthenticationProvider;
 import io.micronaut.security.authentication.AuthenticationRequest;
 import io.micronaut.security.authentication.AuthenticationResponse;
 import io.reactivex.Flowable;
-import lombok.RequiredArgsConstructor;
 import org.reactivestreams.Publisher;
 
 import javax.inject.Singleton;
 import java.util.Optional;
 
 @Singleton
-@RequiredArgsConstructor
 public class AuthProvider implements AuthenticationProvider {
 
     private final InsuranceAgents insuranceAgents;
+
+    public AuthProvider(InsuranceAgents insuranceAgents) {
+        this.insuranceAgents = insuranceAgents;
+    }
 
     @Override
     public Publisher<AuthenticationResponse> authenticate(AuthenticationRequest request) {

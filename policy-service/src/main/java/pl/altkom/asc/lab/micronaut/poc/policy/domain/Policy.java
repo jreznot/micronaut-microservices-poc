@@ -1,21 +1,12 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Policy {
-
     @Id
     @GeneratedValue
     private Long id;
@@ -29,6 +20,15 @@ public class Policy {
     public Policy(String number) {
         this.number = number;
         this.versions = new HashSet<>();
+    }
+
+    public Policy(Long id, String number, Set<PolicyVersion> versions) {
+        this.id = id;
+        this.number = number;
+        this.versions = versions;
+    }
+
+    protected Policy() {
     }
 
     public LocalDate getLastVersionValidityFrom() {
@@ -45,5 +45,17 @@ public class Policy {
 
     public void terminate() {
         //TODO implement terminate business logic (specification pattern example)
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public Set<PolicyVersion> getVersions() {
+        return this.versions;
     }
 }

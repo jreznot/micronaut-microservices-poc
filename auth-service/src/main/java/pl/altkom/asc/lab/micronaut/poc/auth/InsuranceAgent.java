@@ -1,13 +1,7 @@
 package pl.altkom.asc.lab.micronaut.poc.auth;
 
 import java.util.List;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 class InsuranceAgent {
 
     private String login;
@@ -21,7 +15,26 @@ class InsuranceAgent {
         this.avatar = avatar;
         this.availableProducts = availableProducts;
     }
-    
+
+    protected InsuranceAgent() {
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public List<String> getAvailableProducts() {
+        return availableProducts;
+    }
+
     boolean passwordMatches(String passwordToTest) {
         return this.password.equals(passwordToTest);
     }

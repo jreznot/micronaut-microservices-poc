@@ -1,20 +1,20 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain.vo;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Embeddable;
 import java.time.LocalDate;
 
 @Embeddable
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class DateRange {
     private LocalDate from;
     private LocalDate to;
+
+    public DateRange(LocalDate from, LocalDate to) {
+        this.from = from;
+        this.to = to;
+    }
+
+    protected DateRange() {
+    }
 
     public static DateRange between(LocalDate from, LocalDate to) {
         return new DateRange(from, to);
@@ -28,5 +28,21 @@ public class DateRange {
             return false;
 
         return true;
+    }
+
+    public void setFrom(LocalDate from) {
+        this.from = from;
+    }
+
+    public void setTo(LocalDate to) {
+        this.to = to;
+    }
+
+    public LocalDate getFrom() {
+        return this.from;
+    }
+
+    public LocalDate getTo() {
+        return this.to;
     }
 }

@@ -6,13 +6,14 @@ import io.micronaut.websocket.annotation.OnClose;
 import io.micronaut.websocket.annotation.OnMessage;
 import io.micronaut.websocket.annotation.OnOpen;
 import io.micronaut.websocket.annotation.ServerWebSocket;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 
 import java.util.function.Predicate;
 
-@Slf4j
 @ServerWebSocket("/ws/chat/{topic}/{username}")
 public class ChatWebSocket {
+
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(ChatWebSocket.class);
 
     private WebSocketBroadcaster broadcaster;
 

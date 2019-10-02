@@ -1,15 +1,10 @@
 package pl.altkom.asc.lab.micronaut.poc.product.service.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.math.BigDecimal;
 
-
-@Getter
-@NoArgsConstructor
 public class Cover {
     private String code;
     private String name;
@@ -29,5 +24,28 @@ public class Cover {
         this.description = description;
         this.optional = optional;
         this.sumInsured = sumInsured;
+    }
+
+    public Cover() {
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public boolean isOptional() {
+        return this.optional;
+    }
+
+    public BigDecimal getSumInsured() {
+        return this.sumInsured;
     }
 }

@@ -1,16 +1,11 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.math.BigDecimal;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 public class Cover {
     @Id
     @GeneratedValue
@@ -31,8 +26,27 @@ public class Cover {
         this.price = price;
     }
 
+    protected Cover() {
+    }
+
     @Override
     public String toString() {
         return code + " - " + price;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public BigDecimal getPrice() {
+        return this.price;
+    }
+
+    public PolicyVersion getPolicyVersion() {
+        return this.policyVersion;
     }
 }

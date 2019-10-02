@@ -1,13 +1,10 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain.vo;
 
-import lombok.Getter;
-
 import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 @Embeddable
-@Getter
 public class MonetaryAmount implements Comparable<MonetaryAmount> {
     private final BigDecimal amount;
 
@@ -149,5 +146,9 @@ public class MonetaryAmount implements Comparable<MonetaryAmount> {
     @Override
     public String toString() {
         return this.amount.toString();
+    }
+
+    public BigDecimal getAmount() {
+        return this.amount;
     }
 }

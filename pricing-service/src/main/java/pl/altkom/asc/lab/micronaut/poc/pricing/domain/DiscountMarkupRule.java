@@ -1,7 +1,5 @@
 package pl.altkom.asc.lab.micronaut.poc.pricing.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.mvel2.MVEL;
 
 import javax.persistence.*;
@@ -10,13 +8,11 @@ import java.math.BigDecimal;
 @Entity
 @DiscriminatorColumn(name = "type")
 @Table(name = "discount_markup_rule")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@NoArgsConstructor
-@Getter
+@Inheritance()
 public abstract class DiscountMarkupRule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
     @ManyToOne
@@ -29,6 +25,9 @@ public abstract class DiscountMarkupRule {
     @Column(name = "param_value")
     protected BigDecimal paramValue;
 
+    public DiscountMarkupRule() {
+    }
+
     boolean applies(Calculation calculation) {
         return applyIfFormula == null || applyIfFormula.isEmpty()
                 ? true
@@ -36,4 +35,20 @@ public abstract class DiscountMarkupRule {
     }
 
     public abstract Calculation apply(Calculation calculation);
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public Tariff getTariff() {
+        return this.tariff;
+    }
+
+    public String getApplyIfFormula() {
+        return this.applyIfFormula;
+    }
+
+    public BigDecimal getParamValue() {
+        return this.paramValue;
+    }
 }

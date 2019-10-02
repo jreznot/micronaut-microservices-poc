@@ -1,20 +1,13 @@
 package pl.altkom.asc.lab.micronaut.poc.payment.domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 
 @Entity
 @Inheritance
 @Table(name = "accounting_entry")
 @DiscriminatorColumn(name = "entry_type")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 public abstract class AccountingEntry {
 
     @Id
@@ -41,9 +34,32 @@ public abstract class AccountingEntry {
         this.amount = amount;
     }
 
+    protected AccountingEntry() {
+    }
+
     public abstract BigDecimal apply(BigDecimal state);
 
     boolean isEffectiveOn(LocalDate theDate) {
         return this.effectiveDate.isBefore(theDate) || this.effectiveDate.equals(theDate);
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public PolicyAccount getPolicyAccount() {
+        return this.policyAccount;
+    }
+
+    public LocalDate getCreationDate() {
+        return this.creationDate;
+    }
+
+    public LocalDate getEffectiveDate() {
+        return this.effectiveDate;
+    }
+
+    public BigDecimal getAmount() {
+        return this.amount;
     }
 }

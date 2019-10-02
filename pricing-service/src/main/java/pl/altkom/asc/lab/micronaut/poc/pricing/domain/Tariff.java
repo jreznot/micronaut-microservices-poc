@@ -1,16 +1,11 @@
 package pl.altkom.asc.lab.micronaut.poc.pricing.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "tariff")
-@NoArgsConstructor
-@Getter
 public class Tariff {
 
     @Id
@@ -31,6 +26,9 @@ public class Tariff {
         this.code = code;
         this.basePriceCalculationRules = new ArrayList<>();
         this.discountMarkupRules = new ArrayList<>();
+    }
+
+    public Tariff() {
     }
 
     public BasePremiumCalculationRuleList rules() {
@@ -63,4 +61,19 @@ public class Tariff {
         calculation.updateTotal();
     }
 
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public List<BasePremiumCalculationRule> getBasePriceCalculationRules() {
+        return this.basePriceCalculationRules;
+    }
+
+    public List<DiscountMarkupRule> getDiscountMarkupRules() {
+        return this.discountMarkupRules;
+    }
 }

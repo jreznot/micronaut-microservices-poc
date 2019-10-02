@@ -1,7 +1,5 @@
 package pl.altkom.asc.lab.micronaut.poc.product.service.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonDiscriminator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
@@ -10,8 +8,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@NoArgsConstructor
 @BsonDiscriminator
 public class Product {
     private String code;
@@ -50,6 +46,9 @@ public class Product {
         this.questions = new ArrayList<>();
     }
 
+    public Product() {
+    }
+
     public void addCover(String code, String name, String description, boolean isOptional, BigDecimal sumInsured) {
         covers.add(new Cover(code, name, description, isOptional, sumInsured));
     }
@@ -59,5 +58,33 @@ public class Product {
             this.questions = new ArrayList<>();
         }
         this.questions.addAll(questions);
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public List<Cover> getCovers() {
+        return this.covers;
+    }
+
+    public List<Question> getQuestions() {
+        return this.questions;
+    }
+
+    public int getMaxNumberOfInsured() {
+        return this.maxNumberOfInsured;
     }
 }

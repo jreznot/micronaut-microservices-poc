@@ -1,20 +1,19 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain.vo;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 
 @Embeddable
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-@Getter
 public class Quantity {
 
     private BigDecimal value;
+
+    public Quantity(BigDecimal value) {
+        this.value = value;
+    }
+
+    protected Quantity() {
+    }
 
     public static Quantity of(BigDecimal value) {
         return new Quantity(value);
@@ -41,4 +40,12 @@ public class Quantity {
     }
 
     public Quantity subtract(Quantity qt) { return new Quantity(value.subtract(qt.value)); }
+
+    public BigDecimal getValue() {
+        return this.value;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
 }

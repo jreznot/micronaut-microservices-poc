@@ -21,5 +21,4 @@ public class OfferGatewayController {
     CreateOfferResult create(CreateOfferCommand cmd) {
         return client.createOffer(cmd);
     }
-
 }

@@ -1,15 +1,26 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.service.api.v1;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Health {
     private String ver;
     private String status;
+
+    public Health(String ver, String status) {
+        this.ver = ver;
+        this.status = status;
+    }
+
+    public Health() {
+    }
+
+    public String getVer() {
+        return this.ver;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String toString() {
+        return "Health(ver=" + this.getVer() + ", status=" + this.getStatus() + ")";
+    }
 }

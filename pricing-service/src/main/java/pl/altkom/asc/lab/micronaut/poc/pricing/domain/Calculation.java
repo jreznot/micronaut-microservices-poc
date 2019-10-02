@@ -1,13 +1,10 @@
 package pl.altkom.asc.lab.micronaut.poc.pricing.domain;
 
-import lombok.Getter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-@Getter
 public class Calculation {
 
     private String productCode;
@@ -55,5 +52,29 @@ public class Calculation {
 
     private void zeroPrice(String cover) {
         covers.put(cover, new Cover(cover, BigDecimal.ZERO));
+    }
+
+    public String getProductCode() {
+        return this.productCode;
+    }
+
+    public LocalDate getPolicyFrom() {
+        return this.policyFrom;
+    }
+
+    public LocalDate getPolicyTo() {
+        return this.policyTo;
+    }
+
+    public BigDecimal getTotalPremium() {
+        return this.totalPremium;
+    }
+
+    public Map<String, Cover> getCovers() {
+        return this.covers;
+    }
+
+    public Map<String, Object> getSubject() {
+        return this.subject;
     }
 }

@@ -2,11 +2,7 @@ package pl.altkom.asc.lab.micronaut.poc.product.service.api.v1.questions;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@Getter
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -25,5 +21,20 @@ public class QuestionDto {
         this.code = code;
         this.index = index;
         this.text = text;
+    }
+
+    public QuestionDto() {
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public int getIndex() {
+        return this.index;
+    }
+
+    public String getText() {
+        return this.text;
     }
 }

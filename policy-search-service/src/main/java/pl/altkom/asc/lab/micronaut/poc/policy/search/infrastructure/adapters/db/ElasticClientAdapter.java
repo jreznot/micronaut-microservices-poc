@@ -1,7 +1,6 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.search.infrastructure.adapters.db;
 
 import io.reactivex.Maybe;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.index.IndexRequest;
@@ -14,7 +13,6 @@ import org.elasticsearch.client.RestHighLevelClient;
 import javax.inject.Singleton;
 
 @Singleton
-@Slf4j
 public class ElasticClientAdapter {
 
     private final RestHighLevelClient restHighLevelClient;

@@ -5,17 +5,21 @@
  */
 package pl.altkom.asc.lab.micronaut.poc.policy.service.api.v1.commands.createpolicy;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class CreatePolicyResult {
     private String policyNumber;
+
+    public CreatePolicyResult() {
+    }
+
+    public CreatePolicyResult(String policyNumber) {
+        this.policyNumber = policyNumber;
+    }
+
+    public String getPolicyNumber() {
+        return policyNumber;
+    }
+
+    public void setPolicyNumber(String policyNumber) {
+        this.policyNumber = policyNumber;
+    }
 }

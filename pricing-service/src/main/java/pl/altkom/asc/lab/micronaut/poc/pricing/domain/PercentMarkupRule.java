@@ -1,20 +1,20 @@
 package pl.altkom.asc.lab.micronaut.poc.pricing.domain;
 
-import lombok.NoArgsConstructor;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 
 @Entity
 @DiscriminatorValue("perc_markup")
-@NoArgsConstructor
 public class PercentMarkupRule extends DiscountMarkupRule {
 
     PercentMarkupRule(Tariff tariff, String applyIfFormula, BigDecimal paramValue) {
         this.tariff = tariff;
         this.applyIfFormula = applyIfFormula;
         this.paramValue = paramValue;
+    }
+
+    public PercentMarkupRule() {
     }
 
     @Override
@@ -27,6 +27,4 @@ public class PercentMarkupRule extends DiscountMarkupRule {
         }
         return calculation;
     }
-
-
 }

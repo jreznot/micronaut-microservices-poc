@@ -1,12 +1,6 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.search.infrastructure.adapters.db;
 
 import io.reactivex.Maybe;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import javax.inject.Singleton;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
@@ -14,20 +8,29 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.QueryStringQueryBuilder;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.slf4j.Logger;
 import pl.altkom.asc.lab.micronaut.poc.policy.search.readmodel.PolicyView;
 import pl.altkom.asc.lab.micronaut.poc.policy.search.readmodel.PolicyViewRepository;
 import pl.altkom.asc.lab.micronaut.poc.policy.search.service.api.v1.queries.findpolicy.FindPolicyQuery;
 
+import javax.inject.Singleton;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Singleton
-@Slf4j
-@RequiredArgsConstructor
 public class ElasticPolicyViewRepository implements PolicyViewRepository {
 
     private static final String INDEX_NAME = "policy-views";
 
     private final ElasticClientAdapter elasticClientAdapter;
     private final JsonConverter jsonConverter;
-    
+
+    public ElasticPolicyViewRepository(ElasticClientAdapter elasticClientAdapter, JsonConverter jsonConverter) {
+        this.elasticClientAdapter = elasticClientAdapter;
+        this.jsonConverter = jsonConverter;
+    }
+
     @Override
     public void save(PolicyView policy) {
         IndexRequest indexRequest = new IndexRequest(INDEX_NAME,"policyview", policy.getNumber());

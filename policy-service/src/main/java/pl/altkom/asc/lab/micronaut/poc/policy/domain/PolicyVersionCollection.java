@@ -1,6 +1,5 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain;
 
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.vo.DateRange;
 import pl.altkom.asc.lab.micronaut.poc.policy.shared.exceptions.BusinessException;
 
@@ -9,11 +8,15 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
-@RequiredArgsConstructor
 public class PolicyVersionCollection {
 
     private final Policy policy;
     private final Set<PolicyVersion> versions;
+
+    public PolicyVersionCollection(Policy policy, Set<PolicyVersion> versions) {
+        this.policy = policy;
+        this.versions = versions;
+    }
 
     public PolicyVersion withNumber(Long number) {
         return versions
@@ -30,7 +33,6 @@ public class PolicyVersionCollection {
                 .orElseThrow(() -> new BusinessException("POLICY NOT FOUND"));
     }
 
-
     PolicyVersion add(
             Long versionNumber,
             String productCode,
@@ -43,7 +45,6 @@ public class PolicyVersionCollection {
         if (hasVersion(versionNumber)) {
             throw new BusinessException("POLVEREXISTS", new Object[]{policy.getNumber(), versionNumber});
         }
-
 
         PolicyVersion ver = new PolicyVersion(
                 null,

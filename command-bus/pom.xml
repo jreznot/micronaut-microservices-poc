@@ -39,13 +39,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
             <groupId>pl.altkom.asc.lab.micronaut.poc</groupId>
             <artifactId>command-bus-api</artifactId>
             <version>1.0</version>
@@ -62,16 +55,6 @@
                     <configuration>
                         <source>${jdk.version}</source>
                         <target>${jdk.version}</target>
-                        <compilerArgs>
-                            <arg>-parameters</arg>
-                        </compilerArgs>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                                <version>1.18.0</version>
-                            </path>
-                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
             </plugins>

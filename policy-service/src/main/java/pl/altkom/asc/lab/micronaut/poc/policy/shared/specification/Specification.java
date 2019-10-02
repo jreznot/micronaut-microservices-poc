@@ -1,8 +1,5 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.shared.specification;
 
-import lombok.Getter;
-
-@Getter
 public abstract class Specification<T> {
     private static final Object[] EMPTY_PARAMS = new Object[0];
 
@@ -49,5 +46,17 @@ public abstract class Specification<T> {
     protected boolean success() {
         this.errorParams = EMPTY_PARAMS;
         return true;
+    }
+
+    public String getErrorCode() {
+        return this.errorCode;
+    }
+
+    public Object[] getErrorParams() {
+        return this.errorParams;
+    }
+
+    public String getErrorMessage() {
+        return this.errorMessage;
     }
 }

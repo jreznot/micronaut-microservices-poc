@@ -1,7 +1,6 @@
 package pl.altkom.asc.lab.micronaut.poc.pricing.commands;
 
 import io.micronaut.spring.tx.annotation.Transactional;
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.pricing.domain.Calculation;
 import pl.altkom.asc.lab.micronaut.poc.pricing.domain.Tariff;
 import pl.altkom.asc.lab.micronaut.poc.pricing.domain.Tariffs;
@@ -14,10 +13,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Singleton
-@RequiredArgsConstructor
 public class CalculatePriceHandler {
 
     private final Tariffs tariffs;
+
+    public CalculatePriceHandler(Tariffs tariffs) {
+        this.tariffs = tariffs;
+    }
 
     @Transactional(readOnly = true)
     public CalculatePriceResult handle(CalculatePriceCommand calculatePriceCommand) {

@@ -1,12 +1,9 @@
 package pl.altkom.asc.lab.micronaut.poc.auth;
 
-
 import io.micronaut.security.authentication.UserDetails;
-import lombok.Getter;
 
 import java.util.Collection;
 
-@Getter
 class InsuranceAgentDetails extends UserDetails {
 
     private String avatarUrl;
@@ -15,4 +12,8 @@ class InsuranceAgentDetails extends UserDetails {
         super(username, roles);
         this.avatarUrl = avatarUrl;
    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
 }

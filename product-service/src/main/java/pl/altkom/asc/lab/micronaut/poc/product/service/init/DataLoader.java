@@ -2,7 +2,6 @@ package pl.altkom.asc.lab.micronaut.poc.product.service.init;
 
 import io.micronaut.context.event.ApplicationEventListener;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.product.service.domain.Product;
 import pl.altkom.asc.lab.micronaut.poc.product.service.infrastructure.adapters.db.ProductsRepository;
 
@@ -10,10 +9,13 @@ import javax.inject.Singleton;
 import java.util.List;
 
 @Singleton
-@RequiredArgsConstructor
 public class DataLoader implements ApplicationEventListener<ServerStartupEvent> {
 
     private final ProductsRepository productsRepository;
+
+    public DataLoader(ProductsRepository productsRepository) {
+        this.productsRepository = productsRepository;
+    }
 
     @Override
     public void onApplicationEvent(ServerStartupEvent serverStartupEvent) {

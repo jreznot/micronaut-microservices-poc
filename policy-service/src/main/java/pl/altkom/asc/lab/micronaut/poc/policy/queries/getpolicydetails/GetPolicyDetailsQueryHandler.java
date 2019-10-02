@@ -1,7 +1,6 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.queries.getpolicydetails;
 
 import io.micronaut.spring.tx.annotation.Transactional;
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.command.bus.QueryHandler;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.Policy;
 import pl.altkom.asc.lab.micronaut.poc.policy.domain.PolicyRepository;
@@ -13,10 +12,13 @@ import javax.inject.Singleton;
 import java.util.Optional;
 
 @Singleton
-@RequiredArgsConstructor
 public class GetPolicyDetailsQueryHandler implements QueryHandler<GetPolicyDetailsQueryResult, GetPolicyDetailsQuery> {
 
     private final PolicyRepository policyRepository;
+
+    public GetPolicyDetailsQueryHandler(PolicyRepository policyRepository) {
+        this.policyRepository = policyRepository;
+    }
 
     @Transactional(readOnly = true)
     @Override

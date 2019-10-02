@@ -3,15 +3,18 @@ package pl.altkom.asc.lab.micronaut.poc.pricing.init;
 import io.micronaut.context.event.ApplicationEventListener;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
 import io.micronaut.spring.tx.annotation.Transactional;
-import javax.inject.Singleton;
-import lombok.RequiredArgsConstructor;
 import pl.altkom.asc.lab.micronaut.poc.pricing.domain.Tariffs;
 
+import javax.inject.Singleton;
+
 @Singleton
-@RequiredArgsConstructor
 public class DataLoader implements ApplicationEventListener<ServerStartupEvent> {
 
     private final Tariffs tariffsDb;
+
+    public DataLoader(Tariffs tariffsDb) {
+        this.tariffsDb = tariffsDb;
+    }
 
     @Transactional
     @Override
