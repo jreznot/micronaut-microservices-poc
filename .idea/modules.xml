@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/agent-portal-gateway/agent-portal-gateway.iml" filepath="$PROJECT_DIR$/agent-portal-gateway/agent-portal-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chat-service/chat-service.iml" filepath="$PROJECT_DIR$/chat-service/chat-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/command-bus/command-bus.iml" filepath="$PROJECT_DIR$/command-bus/command-bus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/command-bus-api/command-bus-api.iml" filepath="$PROJECT_DIR$/command-bus-api/command-bus-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/documents-service/documents-service.iml" filepath="$PROJECT_DIR$/documents-service/documents-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/documents-service-api/documents-service-api.iml" filepath="$PROJECT_DIR$/documents-service-api/documents-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/micronaut-microservices-poc.iml" filepath="$PROJECT_DIR$/.idea/micronaut-microservices-poc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment-service/payment-service.iml" filepath="$PROJECT_DIR$/payment-service/payment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment-service-api/payment-service-api.iml" filepath="$PROJECT_DIR$/payment-service-api/payment-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/policy-search-service/policy-search-service.iml" filepath="$PROJECT_DIR$/policy-search-service/policy-search-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/policy-search-service-api/policy-search-service-api.iml" filepath="$PROJECT_DIR$/policy-search-service-api/policy-search-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/policy-service/policy-service.iml" filepath="$PROJECT_DIR$/policy-service/policy-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/policy-service-api/policy-service-api.iml" filepath="$PROJECT_DIR$/policy-service-api/policy-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pricing-service/pricing-service.iml" filepath="$PROJECT_DIR$/pricing-service/pricing-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pricing-service-api/pricing-service-api.iml" filepath="$PROJECT_DIR$/pricing-service-api/pricing-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service/product-service.iml" filepath="$PROJECT_DIR$/product-service/product-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service-api/product-service-api.iml" filepath="$PROJECT_DIR$/product-service-api/product-service-api.iml" />
+    </modules>
+  </component>
+</project>
