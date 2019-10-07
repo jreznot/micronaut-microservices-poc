@@ -14,18 +14,23 @@ public class Policy {
     @Column(name = "number")
     private String number;
 
+    @Embedded
+    private AgentRef agent;
+
     @OneToMany(mappedBy = "policy", cascade = CascadeType.ALL)
     private Set<PolicyVersion> versions;
 
-    public Policy(String number) {
+    public Policy(String number, AgentRef agent) {
         this.number = number;
         this.versions = new HashSet<>();
+        this.agent = agent;
     }
 
-    public Policy(Long id, String number, Set<PolicyVersion> versions) {
+    public Policy(Long id, String number, AgentRef agent, Set<PolicyVersion> versions) {
         this.id = id;
         this.number = number;
         this.versions = versions;
+        this.agent = agent;
     }
 
     protected Policy() {
@@ -57,5 +62,9 @@ public class Policy {
 
     public Set<PolicyVersion> getVersions() {
         return this.versions;
+    }
+
+    public AgentRef getAgent() {
+        return agent;
     }
 }

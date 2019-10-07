@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/chat-service/chat-service.iml" filepath="$PROJECT_DIR$/chat-service/chat-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/command-bus/command-bus.iml" filepath="$PROJECT_DIR$/command-bus/command-bus.iml" />
       <module fileurl="file://$PROJECT_DIR$/command-bus-api/command-bus-api.iml" filepath="$PROJECT_DIR$/command-bus-api/command-bus-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dashboard-service/dashboard-service.iml" filepath="$PROJECT_DIR$/dashboard-service/dashboard-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dashboard-service-api/dashboard-service-api.iml" filepath="$PROJECT_DIR$/dashboard-service-api/dashboard-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/documents-service/documents-service.iml" filepath="$PROJECT_DIR$/documents-service/documents-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/documents-service-api/documents-service-api.iml" filepath="$PROJECT_DIR$/documents-service-api/documents-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/micronaut-microservices-poc.iml" filepath="$PROJECT_DIR$/.idea/micronaut-microservices-poc.iml" />

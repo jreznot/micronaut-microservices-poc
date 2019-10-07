@@ -6,13 +6,24 @@ import pl.altkom.asc.lab.micronaut.poc.policy.service.api.v1.commands.createpoli
 public class CreatePolicyCommand implements Command<CreatePolicyResult> {
     private String offerNumber;
     private PersonDto policyHolder;
+    private String agentLogin;
 
-    public CreatePolicyCommand(String offerNumber, PersonDto policyHolder) {
+    public CreatePolicyCommand(String offerNumber, PersonDto policyHolder,
+                               String agentLogin) {
         this.offerNumber = offerNumber;
         this.policyHolder = policyHolder;
+        this.agentLogin = agentLogin;
     }
 
     public CreatePolicyCommand() {
+    }
+
+    public String getAgentLogin() {
+        return agentLogin;
+    }
+
+    public void setAgentLogin(String agentLogin) {
+        this.agentLogin = agentLogin;
     }
 
     public String getOfferNumber() {

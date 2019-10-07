@@ -23,6 +23,8 @@
         <option value="$PROJECT_DIR$/chat-service/pom.xml" />
         <option value="$PROJECT_DIR$/auth-service/pom.xml" />
         <option value="$PROJECT_DIR$/agent-portal-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/dashboard-service/pom.xml" />
+        <option value="$PROJECT_DIR$/dashboard-service-api/pom.xml" />
       </list>
     </option>
   </component>

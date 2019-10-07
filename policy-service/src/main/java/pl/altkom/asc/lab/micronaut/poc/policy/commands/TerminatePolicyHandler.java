@@ -45,7 +45,10 @@ public class TerminatePolicyHandler implements CommandHandler<TerminatePolicyRes
                 policy.getNumber(),
                 policy.getLastVersionValidityFrom(),
                 policy.getLastVersionValidityTo(),
-                policy.versions().lastVersion().getPolicyHolder().getFullName()
+                policy.versions().lastVersion().getPolicyHolder().getFullName(),
+                policy.versions().lastVersion().getProductCode(),
+                policy.versions().lastVersion().getTotalPremiumAmount(),
+                null
         ));
     }
 }

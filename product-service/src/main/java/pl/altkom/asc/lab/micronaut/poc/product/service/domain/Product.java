@@ -17,6 +17,7 @@ public class Product {
     private List<Cover> covers;
     private List<Question> questions;
     private int maxNumberOfInsured;
+    private String icon;
 
     @BsonCreator
     public Product(
@@ -26,7 +27,8 @@ public class Product {
             @BsonProperty("description") String description,
             @BsonProperty("covers") List<Cover> covers,
             @BsonProperty("questions") List<Question> questions,
-            @BsonProperty("maxNumberOfInsured") int maxNumberOfInsured) {
+            @BsonProperty("maxNumberOfInsured") int maxNumberOfInsured,
+            @BsonProperty("icon") String icon) {
         this.code = code;
         this.name = name;
         this.image = image;
@@ -34,9 +36,10 @@ public class Product {
         this.covers = covers;
         this.questions = questions;
         this.maxNumberOfInsured = maxNumberOfInsured;
+        this.icon = icon;
     }
 
-    public Product(String code, String name, String image, String description, int maxNumberOfInsured) {
+    public Product(String code, String name, String image, String description, int maxNumberOfInsured, String icon) {
         this.code = code;
         this.name = name;
         this.image = image;
@@ -44,6 +47,7 @@ public class Product {
         this.maxNumberOfInsured = maxNumberOfInsured;
         this.covers = new ArrayList<>();
         this.questions = new ArrayList<>();
+        this.icon = icon;
     }
 
     public Product() {
@@ -58,6 +62,10 @@ public class Product {
             this.questions = new ArrayList<>();
         }
         this.questions.addAll(questions);
+    }
+
+    public String getIcon() {
+        return icon;
     }
 
     public String getCode() {

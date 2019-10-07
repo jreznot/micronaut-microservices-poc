@@ -39,7 +39,8 @@ public class CreatePolicyHandler implements CommandHandler<CreatePolicyResult, C
 
         //create policy from offer
         Person policyHolder = new Person(cmd.getPolicyHolder().getFirstName(), cmd.getPolicyHolder().getLastName(), cmd.getPolicyHolder().getTaxId());
-        Policy policy = policyFactory.fromOffer(offer, policyHolder);
+        AgentRef agent = AgentRef.of(cmd.getAgentLogin());
+        Policy policy = policyFactory.fromOffer(offer, policyHolder, agent);
 
         //save policy and update offer
         policyRepository.save(policy);
@@ -56,7 +57,10 @@ public class CreatePolicyHandler implements CommandHandler<CreatePolicyResult, C
                         policy.getNumber(),
                         policy.getLastVersionValidityFrom(),
                         policy.getLastVersionValidityTo(),
-                        policy.versions().lastVersion().getPolicyHolder().getFullName()
+                        policy.versions().lastVersion().getPolicyHolder().getFullName(),
+                        policy.versions().lastVersion().getProductCode(),
+                        policy.versions().lastVersion().getTotalPremiumAmount(),
+                        null
                 )
         );
     }

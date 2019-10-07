@@ -12,9 +12,10 @@ public class ProductDto {
     private List<CoverDto> covers;
     private List<QuestionDto> questions;
     private int maxNumberOfInsured;
+    private String icon;
 
     public ProductDto(String code, String name, String image, String description,
-                      List<CoverDto> covers, List<QuestionDto> questions, int maxNumberOfInsured) {
+                      List<CoverDto> covers, List<QuestionDto> questions, int maxNumberOfInsured, String icon) {
         this.code = code;
         this.name = name;
         this.image = image;
@@ -22,6 +23,7 @@ public class ProductDto {
         this.covers = covers;
         this.questions = questions;
         this.maxNumberOfInsured = maxNumberOfInsured;
+        this.icon = icon;
     }
 
     public ProductDto() {
@@ -29,6 +31,10 @@ public class ProductDto {
 
     public static ProductDtoBuilder builder() {
         return new ProductDtoBuilder();
+    }
+
+    public String getIcon() {
+        return icon;
     }
 
     public String getCode() {
@@ -67,8 +73,14 @@ public class ProductDto {
         private List<CoverDto> covers;
         private List<QuestionDto> questions;
         private int maxNumberOfInsured;
+        private String icon;
 
         ProductDtoBuilder() {
+        }
+
+        public ProductDto.ProductDtoBuilder icon(String icon) {
+            this.icon = icon;
+            return this;
         }
 
         public ProductDto.ProductDtoBuilder code(String code) {
@@ -107,11 +119,19 @@ public class ProductDto {
         }
 
         public ProductDto build() {
-            return new ProductDto(code, name, image, description, covers, questions, maxNumberOfInsured);
+            return new ProductDto(code, name, image, description, covers, questions, maxNumberOfInsured, icon);
         }
 
         public String toString() {
-            return "ProductDto.ProductDtoBuilder(code=" + this.code + ", name=" + this.name + ", image=" + this.image + ", description=" + this.description + ", covers=" + this.covers + ", questions=" + this.questions + ", maxNumberOfInsured=" + this.maxNumberOfInsured + ")";
+            return "ProductDto.ProductDtoBuilder(code=" + this.code +
+                    ", name=" + this.name +
+                    ", image=" + this.image +
+                    ", description=" + this.description +
+                    ", covers=" + this.covers +
+                    ", questions=" + this.questions +
+                    ", maxNumberOfInsured=" + this.maxNumberOfInsured +
+                    ", icon=" + this.icon +
+                    ")";
         }
     }
 }
