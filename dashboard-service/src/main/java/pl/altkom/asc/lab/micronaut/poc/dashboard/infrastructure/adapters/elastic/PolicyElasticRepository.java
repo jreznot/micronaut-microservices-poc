@@ -10,12 +10,14 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import pl.altkom.asc.lab.micronaut.poc.dashboard.domain.*;
+import pl.altkom.asc.lab.micronaut.poc.dashboard.infrastructure.adapters.elastic.config.JsonConverter;
 
 import javax.inject.Singleton;
 import java.io.IOException;
 
 @Singleton
 public class PolicyElasticRepository implements PolicyRepository {
+
     private final RestHighLevelClient esClient;
     private final JsonConverter jsonConverter;
 
@@ -26,10 +28,10 @@ public class PolicyElasticRepository implements PolicyRepository {
 
     public void save(PolicyDocument policyDocument) {
         IndexRequest indexRequest = new IndexRequest("policy_stats")
-            .type("policy_type")
-            .id(policyDocument.getNumber())
-            .setRefreshPolicy("true")
-            .source(jsonConverter.stringifyObject(policyDocument), XContentType.JSON);
+                .type("policy_type")
+                .id(policyDocument.getNumber())
+                .setRefreshPolicy("true")
+                .source(jsonConverter.stringifyObject(policyDocument), XContentType.JSON);
 
         try {
             esClient.index(indexRequest);
@@ -40,7 +42,7 @@ public class PolicyElasticRepository implements PolicyRepository {
 
     public PolicyDocument findByNumber(String number) {
         SearchRequest searchRequest = new SearchRequest("policy_stats")
-            .types("policy_type");
+                .types("policy_type");
 
         BoolQueryBuilder filterBuilder = QueryBuilders.boolQuery();
 
@@ -56,8 +58,9 @@ public class PolicyElasticRepository implements PolicyRepository {
 
         SearchHit[] hits = searchResponse.getHits().getHits();
 
-        return hits.length>0 ?
-            jsonConverter.objectFromString(hits[0].getSourceAsString(), PolicyDocument.class) : null;
+        return hits.length > 0
+                ? jsonConverter.objectFromString(hits[0].getSourceAsString(), PolicyDocument.class)
+                : null;
     }
 
     public TotalSalesQuery.Result getTotalSales(TotalSalesQuery query) {
@@ -78,7 +81,7 @@ public class PolicyElasticRepository implements PolicyRepository {
         return queryAdapter.extractResult(searchResponse);
     }
 
-    SearchResponse executeSearch(SearchRequest request){
+    private SearchResponse executeSearch(SearchRequest request) {
         try {
             return esClient.search(request);
         } catch (IOException e) {

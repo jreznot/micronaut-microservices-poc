@@ -1,4 +1,4 @@
-package pl.altkom.asc.lab.micronaut.poc.dashboard.infrastructure.adapters.elastic;
+package pl.altkom.asc.lab.micronaut.poc.dashboard.infrastructure.adapters.elastic.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +16,7 @@ public class JsonConverter {
         this.jsonMapper = jsonMapper;
     }
 
-    <T> String stringifyObject(T doc) {
+    public <T> String stringifyObject(T doc) {
         try {
             return jsonMapper.writeValueAsString(doc);
         } catch (JsonProcessingException e) {
@@ -25,7 +25,7 @@ public class JsonConverter {
         }
     }
 
-    <T> T objectFromString(String src, Class<T> clazz) {
+    public <T> T objectFromString(String src, Class<T> clazz) {
         try {
             return jsonMapper.readValue(src, clazz);
         } catch (IOException ioExc) {
