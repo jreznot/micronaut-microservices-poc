@@ -36,7 +36,7 @@
         </processorPath>
         <module name="dashboard-service" />
       </profile>
-      <profile name="Annotation profile for auth-service" enabled="true">
+      <profile name="Annotation profile for agent-portal-gateway" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -53,13 +53,13 @@
           <entry name="$MAVEN_REPOSITORY$/io/micronaut/micronaut-aop/1.2.0/micronaut-aop-1.2.0.jar" />
         </processorPath>
         <module name="chat-service" />
-        <module name="policy-search-service" />
         <module name="agent-portal-gateway" />
         <module name="auth-service" />
         <module name="payment-service-api" />
         <module name="product-service" />
+        <module name="policy-search-service" />
       </profile>
-      <profile name="Annotation profile for pricing-service" enabled="true">
+      <profile name="Annotation profile for policy-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -82,9 +82,9 @@
           <entry name="$MAVEN_REPOSITORY$/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/io/reactivex/rxjava2/rxjava/2.2.11/rxjava-2.2.11.jar" />
         </processorPath>
-        <module name="payment-service" />
-        <module name="policy-service" />
         <module name="pricing-service" />
+        <module name="policy-service" />
+        <module name="payment-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

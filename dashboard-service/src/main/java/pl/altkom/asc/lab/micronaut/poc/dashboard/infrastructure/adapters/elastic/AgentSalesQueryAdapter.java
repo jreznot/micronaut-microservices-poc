@@ -16,6 +16,8 @@ import pl.altkom.asc.lab.micronaut.poc.dashboard.domain.AgentSalesQuery;
 import pl.altkom.asc.lab.micronaut.poc.dashboard.domain.SalesResult;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AgentSalesQueryAdapter extends QueryAdapter<AgentSalesQuery, AgentSalesQuery.Result> {
     public AgentSalesQueryAdapter(AgentSalesQuery query) {
@@ -60,18 +62,18 @@ public class AgentSalesQueryAdapter extends QueryAdapter<AgentSalesQuery, AgentS
 
     @Override
     AgentSalesQuery.Result extractResult(SearchResponse searchResponse) {
-        AgentSalesQuery.Result.ResultBuilder result = AgentSalesQuery.Result.builder();
         Filter filterAgg = searchResponse.getAggregations().get("agg_filter");
         Terms agents = filterAgg.getAggregations().get("count_by_agent");
 
+        Map<String, SalesResult> sales = new HashMap<>();
         for (Terms.Bucket b : agents.getBuckets()) {
             Sum sum = b.getAggregations().get("total_premium");
-            result.agentTotal(
+            sales.put(
                     b.getKeyAsString(),
                     SalesResult.of(b.getDocCount(), BigDecimal.valueOf(sum.getValue()))
             );
         }
 
-        return result.build();
+        return new AgentSalesQuery.Result(sales);
     }
 }

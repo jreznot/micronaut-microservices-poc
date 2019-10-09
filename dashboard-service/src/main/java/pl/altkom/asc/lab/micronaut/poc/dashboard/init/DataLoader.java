@@ -2,6 +2,7 @@ package pl.altkom.asc.lab.micronaut.poc.dashboard.init;
 
 import io.micronaut.context.event.ApplicationEventListener;
 import io.micronaut.runtime.server.event.ServerStartupEvent;
+import org.slf4j.Logger;
 import pl.altkom.asc.lab.micronaut.poc.dashboard.domain.LocalDateRange;
 import pl.altkom.asc.lab.micronaut.poc.dashboard.domain.PolicyDocument;
 import pl.altkom.asc.lab.micronaut.poc.dashboard.domain.PolicyRepository;
@@ -15,6 +16,7 @@ import java.util.List;
 public class DataLoader implements ApplicationEventListener<ServerStartupEvent> {
 
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(DataLoader.class);
+
     private final PolicyRepository policyRepository;
 
     public DataLoader(PolicyRepository policyRepository) {
