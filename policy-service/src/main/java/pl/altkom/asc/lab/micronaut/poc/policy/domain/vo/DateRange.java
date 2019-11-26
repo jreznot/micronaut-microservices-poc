@@ -1,7 +1,9 @@
 package pl.altkom.asc.lab.micronaut.poc.policy.domain.vo;
 
 import javax.persistence.Embeddable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Embeddable
 public class DateRange {
@@ -28,6 +30,14 @@ public class DateRange {
             return false;
 
         return true;
+    }
+
+    public DateRange endOn(LocalDate endDate) {
+        return DateRange.between(from, endDate);
+    }
+
+    public BigDecimal days() {
+        return BigDecimal.valueOf(ChronoUnit.DAYS.between(from,to) + 1);
     }
 
     public void setFrom(LocalDate from) {

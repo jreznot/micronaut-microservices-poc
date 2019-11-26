@@ -14,6 +14,7 @@ Other articles around microservices that could be interesting:
 - [CQRS and Event Sourcing Intro For Developers](https://altkomsoftware.pl/en/blog/cqrs-event-sourcing/)
 - [From monolith to microservices – to migrate or not to migrate?](https://altkomsoftware.pl/en/blog/monolith-microservices/)
 - [Event Storming — innovation in IT projects](https://altkomsoftware.pl/en/blog/event-storming/)
+- [\[SLIDES\] Building microservices with Micronaut - practical approach](https://docs.google.com/presentation/d/1WSp3S1zFTKxN1_9kli5J9xlTWrliVjIH8E-eNFb1ghM/edit?usp=sharing)
 
 ## Architecture overview
 
@@ -171,6 +172,16 @@ This command generate project in Java and Maven as build tool.
 
 ## Examples
 
+### Chat
+<p align="center">
+    <img alt="Chat" src="https://raw.githubusercontent.com/asc-lab/micronaut-microservices-poc/master/readme-images/chat_v2.gif" />
+</p>
+
+### Sales Dashboard
+<p align="center">
+    <img alt="Sales Dashboard" src="https://raw.githubusercontent.com/asc-lab/micronaut-microservices-poc/master/readme-images/sales_dashboard.jpg" />
+</p>
+
 ### Tracing requests with Zipkin
 <p align="center">
     <img alt="Zipkin" src="https://raw.githubusercontent.com/asc-lab/micronaut-microservices-poc/master/readme-images/zipkin.png" />
@@ -189,11 +200,6 @@ This command generate project in Java and Maven as build tool.
 ### Show document templates in JS Report
 <p align="center">
     <img alt="JSReport" src="https://raw.githubusercontent.com/asc-lab/micronaut-microservices-poc/master/readme-images/jsreport.png" />
-</p>
-
-### Chat
-<p align="center">
-    <img alt="Chat" src="https://raw.githubusercontent.com/asc-lab/micronaut-microservices-poc/master/readme-images/chat_v2.gif" />
 </p>
 
 ## References
